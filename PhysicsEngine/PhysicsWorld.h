@@ -1,16 +1,10 @@
 #pragma once
 #include <vector>
 #include "Vector3.h"
+#include "Object.h"
 
 using namespace std;
 
-
-struct Object {
-	Vector3 position;
-	Vector3 velocity;
-	Vector3 force;
-	float mass;
-};
 
 class PhysicsWorld {
 private:
@@ -34,4 +28,3 @@ public:
 		}
 	}
 };
-

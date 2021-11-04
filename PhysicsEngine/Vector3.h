@@ -5,7 +5,7 @@ using namespace std;
 class Vector3
 {
 protected:
-	
+
 
 public:
 	float x, y, z;
@@ -24,9 +24,9 @@ public:
 		z = -z;
 	}
 
-	void zero() {
-		Vector3(0, 0, 0);
-	}	
+	Vector3 zero() {
+		return Vector3(0, 0, 0);
+	}
 };
 
 //Adding two vectors together
@@ -53,8 +53,8 @@ inline Vector3 operator* (float a, Vector3 b) {
 inline Vector3 operator/ (Vector3 a, float b) {
 	return Vector3(a.x /= b, a.y /= b, a.z /= b);
 }
-/*
-ostream& operator<< (ostream& cout, const Vector3 a) {
+
+inline ostream& operator<< (ostream& cout, Vector3 a) {
 	cout << "(" << a.x << ", " << a.y << ", " << a.z << ")";
 	return cout;
-}*/
+}

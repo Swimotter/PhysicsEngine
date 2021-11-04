@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "PhysicsWorld.h"
+#include "Vector3.h"
 
 
 using namespace std;
@@ -10,17 +11,14 @@ using namespace std;
 void Test();
 
 PhysicsWorld physics;
-Object ball{
-        Vector3(0, 0, 0),
-        Vector3(0, 0, 0),
-        Vector3(0, 0, 0),
-        1
-};
+Vector3 vec;
+
+Object* ball = new Object(vec.zero(), vec.zero(), vec.zero(), 1);
 
 int main()
 {
     physics.AddObject(ball);
-    
+
     while (true) {
         physics.Step(0.1f);
         Test();
@@ -28,7 +26,7 @@ int main()
 }
 
 void Test() {
-    std::cout << ball.position.x;
+    std::cout << ball->position.x;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
