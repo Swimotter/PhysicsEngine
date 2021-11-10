@@ -10,21 +10,17 @@ using namespace world;
 using namespace vec;
 using namespace obj;
 
-void Test();
-
 PhysicsWorld physics;
-vec::Vector3 vec;
 
 
 
 int main()
 {
-    Object ball = Object(vec.zero(), vec.zero(), vec.zero(), 2);
-    physics.AddObject(ball);
+    Object ball = Object(vec::Vector3::zero(), vec::Vector3(10, 100, 0), vec::Vector3::zero(), 1, "bob");
+    physics.AddObject(&ball);
 
     while (true) {
-        ball.addForce(vec::Vector3(10,10,10));
-        physics.Step(1);
+        physics.Step(.002f);
     }
 }
 
