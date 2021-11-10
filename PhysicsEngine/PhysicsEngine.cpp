@@ -3,30 +3,35 @@
 
 #include <iostream>
 #include "PhysicsWorld.h"
-#include "Vector3.h"
 
 
 using namespace std;
+using namespace world;
+using namespace vec;
+using namespace obj;
 
 void Test();
 
 PhysicsWorld physics;
-Vector3 vec;
+vec::Vector3 vec;
 
-Object* ball = new Object(vec.zero(), vec.zero(), vec.zero(), 1);
+
 
 int main()
 {
+    Object ball = Object(vec.zero(), vec.zero(), vec.zero(), 2);
     physics.AddObject(ball);
 
     while (true) {
-        physics.Step(0.1f);
-        Test();
+        ball.addForce(vec::Vector3(10,10,10));
+        physics.Step(1);
     }
 }
 
 void Test() {
-    std::cout << ball->position.x;
+    //cout << ball->position << ", ";
+    //cout << ball->velocity << ", ";
+    //cout << ball->force << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
